@@ -1,9 +1,6 @@
-local lsp = require('lsp-zero').preset({
-  name = 'recommended',
-  set_lsp_keymaps = true,
-  manage_nvim_cmp = true,
-  suggest_lsp_servers = false,
-})
+local lsp = require('lsp-zero')
+
+lsp.preset("recommended")
 
 lsp.ensure_installed({
 	'tsserver',
@@ -13,9 +10,19 @@ lsp.ensure_installed({
 	'marksman'
 })
 
+lsp.set_preferences({
+    sign_icons = {
+        error = 'E',
+        warn = 'W',
+        hint = 'H',
+        info = 'I'
+    }
+})
+
 lsp.format_on_save({
 	servers = {
-		['rust_analyzer'] = {'rust'}
+		['rust_analyzer'] = {'rust'},
+        ['tsserver'] = {'typescript'}
 	}
 })
 
@@ -36,3 +43,7 @@ end)
 lsp.nvim_workspace()
 
 lsp.setup()
+
+vim.diagnostic.config({
+    virtual_text = true
+})
