@@ -16,8 +16,6 @@ use {
 
 use({ 'rose-pine/neovim', as = 'rose-pine' })
 
-vim.cmd('colorscheme rose-pine')
-
 use('nvim-treesitter/nvim-treesitter', {run= ':TSUpdate'})
 use('nvim-treesitter/playground')
 use('theprimeagen/harpoon')
@@ -46,4 +44,8 @@ use {
     {'rafamadriz/friendly-snippets'}, -- Optional
   }
 }
+
+use('folke/zen-mode.nvim')
+use('windwp/nvim-autopairs')
+
 end)
