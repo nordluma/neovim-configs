@@ -14,14 +14,18 @@ use {
 	requires = { {'nvim-lua/plenary.nvim'} }
 }
 
+-- Themes
 use({ 'rose-pine/neovim', as = 'rose-pine' })
+use('folke/tokyonight.nvim')
 
+-- Layout
+use('folke/zen-mode.nvim')
+
+-- Treesitter
 use('nvim-treesitter/nvim-treesitter', {run= ':TSUpdate'})
 use('nvim-treesitter/playground')
-use('theprimeagen/harpoon')
-use('mbbill/undotree')
-use('tpope/vim-fugitive')
 
+-- LSP
 use {
   'VonHeikemen/lsp-zero.nvim',
   branch = 'v1.x',
@@ -45,7 +49,10 @@ use {
   }
 }
 
-use('folke/zen-mode.nvim')
+-- Utility
+use('theprimeagen/harpoon')
+use('mbbill/undotree')
+use('tpope/vim-fugitive')
 use('windwp/nvim-autopairs')
 
 end)
