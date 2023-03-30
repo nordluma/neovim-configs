@@ -22,7 +22,8 @@ lsp.set_preferences({
 lsp.format_on_save({
 	servers = {
 		['rust_analyzer'] = {'rust'},
-        ['tsserver'] = {'typescript'}
+        ['tsserver'] = {'typescript'},
+        ['marksman'] = {'markdown'}
 	}
 })
 
@@ -42,7 +43,16 @@ end)
 -- (Optional) Configure lua language server for neovim
 lsp.nvim_workspace()
 
-lsp.setup()
+lsp.setup({
+    settings = {
+        css = {
+            validate = true,
+            lint = {
+                unknownAtRules = "ignore",
+            }
+        },
+    },
+})
 
 vim.diagnostic.config({
     virtual_text = true
