@@ -12,5 +12,4 @@ vim.keymap.set("n", "<leader>zz", function()
     vim.wo.wrap = false
     vim.wo.number = true
     vim.wo.rnu = true
-    ColorMyPencils()
 end)
