@@ -1,3 +1,11 @@
+-- Shell options
+vim.opt.shell = "pwsh.exe"
+vim.opt.shellcmdflag = "-NoLogo -NoProfile -NonInteractive -ExecutionPolicy RemoteSigned -Command"
+vim.opt.shellxquote = ""
+vim.opt.shellquote = ""
+vim.opt.shellredir = "2>&1 | Out-File -Encoding UTF-8 %s"
+vim.opt.shellpipe = "2>&1 | Out-File -Encoding UTF-8 %s"
+
 -- Set Linenumbers
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -25,7 +33,7 @@ vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
 
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 10
 vim.opt.signcolumn = "yes:2"
 
 vim.opt.updatetime = 50
@@ -33,3 +41,5 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
+
+
