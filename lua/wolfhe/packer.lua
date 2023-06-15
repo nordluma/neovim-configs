@@ -1,4 +1,3 @@
-
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
 -- Only required if you have packer configured as `opt`
@@ -48,12 +47,14 @@ use {
     {'rafamadriz/friendly-snippets'}, -- Optional
   }
 }
+use('jose-elias-alvarez/null-ls.nvim')
 
 -- Utility
 use('theprimeagen/harpoon')
 use('mbbill/undotree')
 use('tpope/vim-fugitive')
 use('windwp/nvim-autopairs')
+use('windwp/nvim-ts-autotag')
 use{
     'nvim-lualine/lualine.nvim',
     requires = {'nvim-tree/nvim-web-devicons', opt=true}
