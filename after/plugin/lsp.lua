@@ -82,6 +82,12 @@ lsp.setup({
     },
 })
 
+vim.filetype.add({
+    extension = {
+        templ = "templ",
+    },
+})
+
 vim.diagnostic.config({
     virtual_text = true
 })
