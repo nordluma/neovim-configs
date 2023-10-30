@@ -1,5 +1,8 @@
 local lsp = require('lsp-zero')
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+local lspconfig = require("lspconfig")
+
+lspconfig.htmx.setup {}
 
 lsp.preset("recommended")
 
@@ -66,7 +69,6 @@ end)
 
 -- (Optional) Configure lua language server for neovim
 lsp.nvim_workspace()
-
 
 -- Ignore TailwindCss unknownAtRules
 lsp.setup({
