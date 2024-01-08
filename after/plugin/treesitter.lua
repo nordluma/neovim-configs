@@ -27,6 +27,28 @@ require("nvim-treesitter.configs").setup({
         -- Instead of true it can also be a list of languages
         additional_vim_regex_highlighting = false,
     },
+
+    -- Textobjetcs configs
+    textobjects = {
+        select = {
+            enable = true,
+            -- Automatically jump forward to textobject
+            lookahead = true,
+            keymaps = {
+                ["af"] = { query = "@function.outer", desc = "Select around a function" },
+                ["if"] = { query = "@function.inner", desc = "Select inside a function" },
+                ["ac"] = { query = "@class.outer", desc = "Select around a class" },
+                ["ic"] = { query = "@class.inner", desc = "Select inside a class" },
+            },
+            selection_modes = {
+                ["@parameter.outer"] = "v", -- charwise
+                ["@function.outer"] = "V",  -- linewise
+                ["@class.outer"] = "V",     -- linewise
+                -- "<c-v>" blockwise
+            },
+            include_surrounding_whitespace = true,
+        }
+    }
 })
 
 local treesitter_parser_config = require("nvim-treesitter.parsers").get_parser_configs()
