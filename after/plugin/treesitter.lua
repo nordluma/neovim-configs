@@ -39,6 +39,8 @@ require("nvim-treesitter.configs").setup({
                 ["if"] = { query = "@function.inner", desc = "Select inside a function" },
                 ["ac"] = { query = "@class.outer", desc = "Select around a class" },
                 ["ic"] = { query = "@class.inner", desc = "Select inside a class" },
+                ["ao"] = { query = "@object.outer", desc = "Select around an object" },
+                ["io"] = { query = "@object.inner", desc = "Select inside an object" },
             },
             selection_modes = {
                 ["@parameter.outer"] = "v", -- charwise
