@@ -52,6 +52,24 @@ return require('packer').startup(function(use)
     use('theprimeagen/harpoon')
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
+    use('tpope/vim-dadbod')
+    use {
+        'kristijanhusak/vim-dadbod-ui',
+        requires = {
+            { 'tpope/vim-dadbod' },
+            { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'plsql' } }
+        },
+        -- HOW TO MOVE TO OWN MODULE?????
+        cmd = {
+            'DBUI',
+            'DBUIToggle',
+            'DBUIAddConn',
+            'DBUIFindBuffer'
+        },
+        init = function()
+            vim.g.db_ui_use_nerd_fonts = 1
+        end
+    }
     use('windwp/nvim-autopairs')
     use('windwp/nvim-ts-autotag')
     use {
