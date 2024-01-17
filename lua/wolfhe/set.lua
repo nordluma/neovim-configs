@@ -9,7 +9,7 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 -- Clipboard
---vim.api.nvim_set_option("clipboard", "unnamedplus")
+vim.api.Clipboard = "xclip"
 
 -- Formatting
 vim.opt.smartindent = true
