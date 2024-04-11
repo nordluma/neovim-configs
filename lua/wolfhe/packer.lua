@@ -33,6 +33,7 @@ return require('packer').startup(function(use)
             { 'williamboman/mason.nvim' },
             { 'williamboman/mason-lspconfig.nvim' },
 
+
             -- Autocompletion
             { 'hrsh7th/nvim-cmp' },
             { 'hrsh7th/cmp-nvim-lsp' },
@@ -44,7 +45,9 @@ return require('packer').startup(function(use)
             -- Snippets
             { 'L3MON4D3/LuaSnip' },
             { 'rafamadriz/friendly-snippets' },
-        }
+            -- LSP progress
+            { 'j-hui/fidget.nvim' },
+        },
     }
     use('jose-elias-alvarez/null-ls.nvim')
 

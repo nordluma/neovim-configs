@@ -2,6 +2,7 @@ local lsp = require('lsp-zero')
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local lspconfig = require("lspconfig")
 
+require('fidget').setup {}
 lspconfig.htmx.setup {}
 lspconfig.ruff_lsp.setup {}
 
