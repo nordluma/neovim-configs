@@ -3,6 +3,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local lspconfig = require("lspconfig")
 
 lspconfig.htmx.setup {}
+lspconfig.ruff_lsp.setup {}
 
 lsp.preset("recommended")
 
