@@ -2,7 +2,16 @@ local lsp = require('lsp-zero')
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local lspconfig = require("lspconfig")
 
-require('fidget').setup {}
+require('fidget').setup({
+    notification = {
+        filter = vim.log.levels.INFO,
+        window = {
+            winblend = 80,
+            border = 'none'
+        }
+    }
+})
+
 lspconfig.htmx.setup {}
 lspconfig.ruff_lsp.setup {}
 
