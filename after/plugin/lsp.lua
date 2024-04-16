@@ -6,8 +6,10 @@ require('fidget').setup({
     notification = {
         filter = vim.log.levels.INFO,
         window = {
-            winblend = 80,
-            border = 'none'
+            normal_hl = "",
+            winblend = 0,
+            border = 'none',
+            x_padding = 0,
         }
     }
 })
