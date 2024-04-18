@@ -33,6 +33,7 @@ local plugins = {
     "vrischmann/tree-sitter-templ",
     {
         "nvim-treesitter/nvim-treesitter-textobjects",
+        lazy = false,
         dependencies = {
             { "nvim-treesitter/nvim-treesitter" },
         },
