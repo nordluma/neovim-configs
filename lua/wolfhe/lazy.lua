@@ -97,6 +97,18 @@ local plugins = {
     }
 }
 
-local opts = {}
+local opts = {
+    defaults = {
+        lazy = true,
+    },
+    install = {
+        missing = true,
+        colorscheme = { "tokyonight" }
+    },
+    change_detection = {
+        enabled = true,
+        notify = true,
+    },
+}
 
 require("lazy").setup(plugins, opts)
