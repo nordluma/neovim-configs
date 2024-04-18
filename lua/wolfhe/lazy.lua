@@ -22,20 +22,19 @@ local plugins = {
     {
         'folke/tokyonight.nvim',
         lazy = false,
-        priority = 1000,
+        priority = 1000
     },
     -- Layout
-    { 'folke/zen-mode.nvim',             lazy = true },
+    'folke/zen-mode.nvim',
 
     -- Treesitter
     { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
-    { 'nvim-treesitter/playground',      lazy = true, },
+    'nvim-treesitter/playground',
     "vrischmann/tree-sitter-templ",
     {
         "nvim-treesitter/nvim-treesitter-textobjects",
         dependencies = {
             { "nvim-treesitter/nvim-treesitter" },
-            -- {"nvim-treesitter"},
         },
     },
 
@@ -51,11 +50,11 @@ local plugins = {
 
 
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/nvim-cmp',                 event = 'InsertEnter' },
             { 'hrsh7th/cmp-nvim-lsp' },
             { 'hrsh7th/cmp-buffer' },
             { 'hrsh7th/cmp-path' },
-            { 'saadparwaiz1/cmp_luasnip' },
+            { 'saadparwaiz1/cmp_luasnip',         event = 'InsertEnter' },
             { 'hrsh7th/cmp-nvim-lua' },
 
             -- Snippets
@@ -70,15 +69,14 @@ local plugins = {
     -- Utilities
     'theprimeagen/harpoon',
     'mbbill/undotree',
-    'tpope/vim-fugitive',
-    'tpope/vim-dadbod',
+    { 'tpope/vim-fugitive',              event = 'VeryLazy' },
+    { 'tpope/vim-dadbod',                event = 'VeryLazy' },
     {
         'kristijanhusak/vim-dadbod-ui',
         dependencies = {
             { 'tpope/vim-dadbod' },
             { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'plsql' } }
         },
-        event = 'VeryLazy',
         cmd = {
             'DBUI',
             'DBUIToggle',
@@ -93,7 +91,7 @@ local plugins = {
     'windwp/nvim-ts-autotag',
     {
         'nvim-lualine/lualine.nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
     }
 }
 
