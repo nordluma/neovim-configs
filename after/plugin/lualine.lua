@@ -1,3 +1,5 @@
+local lazy_status = require("lazy.status")
+
 require("lualine").setup {
     options = {
         theme = 'palenight',
@@ -19,7 +21,16 @@ require("lualine").setup {
             file_status = true,
             path = 0
         } },
-        lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        lualine_x = {
+            {
+                lazy_status.updates,
+                cond = lazy_status.has_updates,
+                color = { fg = "#ff9e64" },
+            },
+            { 'encoding' },
+            { 'fileformat' },
+            { 'filetype' },
+        },
         lualine_y = { 'progress' },
         lualine_z = {
             'location',
