@@ -25,20 +25,11 @@ local plugins = {
         priority = 1000,
     },
     -- Layout
-    {
-        'folke/zen-mode.nvim',
-        lazy = true,
-    },
+    { 'folke/zen-mode.nvim',             lazy = true },
 
     -- Treesitter
-    {
-        'nvim-treesitter/nvim-treesitter',
-        build = ':TSUpdate'
-    },
-    {
-        'nvim-treesitter/playground',
-        lazy = true,
-    },
+    { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+    { 'nvim-treesitter/playground',      lazy = true, },
     "vrischmann/tree-sitter-templ",
     {
         "nvim-treesitter/nvim-treesitter-textobjects",
@@ -102,7 +93,7 @@ local plugins = {
     'windwp/nvim-ts-autotag',
     {
         'nvim-lualine/lualine.nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons', opt = true }
+        dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }
     }
 }
 
