@@ -43,6 +43,7 @@ local plugins = {
     {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
+        lazy = false,
         dependencies = {
             -- LSP Support
             { 'neovim/nvim-lspconfig' },
@@ -51,11 +52,11 @@ local plugins = {
 
 
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp',                 event = 'InsertEnter' },
+            { 'hrsh7th/nvim-cmp' },
             { 'hrsh7th/cmp-nvim-lsp' },
             { 'hrsh7th/cmp-buffer' },
             { 'hrsh7th/cmp-path' },
-            { 'saadparwaiz1/cmp_luasnip',         event = 'InsertEnter' },
+            { 'saadparwaiz1/cmp_luasnip' },
             { 'hrsh7th/cmp-nvim-lua' },
 
             -- Snippets
@@ -65,13 +66,13 @@ local plugins = {
             { 'j-hui/fidget.nvim' },
         },
     },
-    'jose-elias-alvarez/null-ls.nvim',
+    { 'jose-elias-alvarez/null-ls.nvim', event = 'VeryLazy' },
 
     -- Utilities
     'theprimeagen/harpoon',
     'mbbill/undotree',
-    { 'tpope/vim-fugitive',              event = 'VeryLazy' },
-    { 'tpope/vim-dadbod',                event = 'VeryLazy' },
+    { 'tpope/vim-fugitive', event = 'VeryLazy' },
+    { 'tpope/vim-dadbod',   event = 'VeryLazy' },
     {
         'kristijanhusak/vim-dadbod-ui',
         dependencies = {
