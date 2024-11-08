@@ -18,6 +18,17 @@ lspconfig.htmx.setup {}
 lspconfig.ruff.setup {}
 lspconfig.gleam.setup {}
 lspconfig.ts_ls.setup {}
+lspconfig.nextls.setup({
+    cmd = { 'nextls', '--stdio' },
+    init_options = {
+        extensions = {
+            credo = { enable = true }
+        },
+        experimental = {
+            completions = { enable = true }
+        }
+    }
+})
 
 lsp.preset("recommended")
 
