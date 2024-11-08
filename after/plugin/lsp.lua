@@ -16,11 +16,12 @@ require('fidget').setup({
 
 lspconfig.htmx.setup {}
 lspconfig.ruff.setup {}
+lspconfig.gleam.setup {}
+lspconfig.ts_ls.setup {}
 
 lsp.preset("recommended")
 
 lsp.ensure_installed({
-    'tsserver',
     'rust_analyzer',
     'eslint',
     'html'
