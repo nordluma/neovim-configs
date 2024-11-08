@@ -15,7 +15,7 @@ require('fidget').setup({
 })
 
 lspconfig.htmx.setup {}
-lspconfig.ruff_lsp.setup {}
+lspconfig.ruff.setup {}
 
 lsp.preset("recommended")
 
