@@ -11,9 +11,11 @@ require("nvim-treesitter.configs").setup({
     -- installed locally
     auto_install = true,
 
+    --[[
     autotag = {
         enable = true
     },
+    --]]
 
     highlight = {
         enable = true,
