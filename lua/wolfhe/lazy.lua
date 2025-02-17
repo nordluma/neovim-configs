@@ -146,6 +146,7 @@ local plugins = {
     },
     {
         "rest-nvim/rest.nvim",
+        lazy = false,
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
             opts = function(_, opts)
@@ -171,7 +172,7 @@ local opts = {
     checker = {
         enabled = true,
         notify = false,
-    }
+    },
 }
 
 require("lazy").setup(plugins, opts)
