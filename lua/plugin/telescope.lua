@@ -30,6 +30,14 @@ return {
         })
         builtin.find_files(opts)
       end)
+
+      set_keymap("n", "<leader>od", function()
+        vim.opt_local.splitright = true
+        builtin.lsp_definitions({
+          jump_type = "vsplit",
+        })
+      end)
+
       set_keymap('n', '<leader>re', function()
         require("telescope").extensions.rest.select_env()
       end)
