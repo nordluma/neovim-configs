@@ -1,1 +1,2 @@
-require("wolfhe")
+require("custom")
+require("config.lazy")
