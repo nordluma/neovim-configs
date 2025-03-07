@@ -24,8 +24,8 @@ vim.keymap.set("n", "<leader>jvp", "<cmd>e ~/.config/nvim/lua/wolfhe/lazy.lua<CR
 
 -- Highlight when yanking
 vim.api.nvim_create_autocmd("TextYankPost", {
-    group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
-    callback = function()
-        vim.highlight.on_yank()
-    end
+  group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end
 })
