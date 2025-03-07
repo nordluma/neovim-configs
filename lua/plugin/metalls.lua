@@ -7,23 +7,14 @@ return {
     ft = { "scala", "sbt", "java" },
     opts = function()
       local metals_config = require("metals").bare_config()
+      local lsp = require("custom.plugin.lsp")
       metals_config.settings = {
         showImplicitArguments = true,
       }
 
       metals_config.init_options.statusBarProvider = "off"
       metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-      metals_config.on_attach = function(client, bufnr)
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition)
-        vim.keymap.set("n", "K", vim.lsp.buf.hover)
-        vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol)
-        vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float)
-        vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action)
-        vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references)
-        vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename)
-        vim.keymap.set("n", "<C-h>", vim.lsp.buf.signature_help)
-      end
+      metals_config.on_attach = lsp.on_attach_fn
 
       return metals_config
     end,

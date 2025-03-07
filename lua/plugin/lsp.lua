@@ -26,7 +26,7 @@ return {
     },
     config = function()
       local lsp = require('lsp-zero')
-      local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+      local custom_lsp = require("custom.plugin.lsp")
       local lspconfig = require("lspconfig")
 
       lspconfig.htmx.setup {}
@@ -69,101 +69,7 @@ return {
         }
       })
 
-      lsp.on_attach(function(client, bufnr)
-        local opts = { buffer = bufnr, remap = false }
-        local function goto_definition_in_vsplit()
-          -- build position params for the LSP request
-          local params = vim.lsp.util.make_position_params()
-          vim.lsp.buf_request(0, "textDocument/definition", params, function(err, result, _, _)
-            if err then
-              vim.notify("LSP error: " .. err.message, vim.log.levels.ERROR)
-              return
-            end
-            if not result or vim.tbl_isempty(result) then
-              vim.notify("Definition not found!", vim.log.levels.ERROR)
-              return
-            end
-            if vim.islist(result) then
-              -- if we get only one result -> open it directly in a new split
-              if #result == 1 then
-                vim.cmd("vsplit")
-                local def = result[1]
-                vim.cmd("wincmd w")
-                vim.lsp.util.jump_to_location(def, nil, false)
-              else
-                -- multiple definitions returned -> open a telescope picker
-                local pickers = require("telescope.pickers")
-                local finders = require("telescope.finders")
-                local actions = require("telescope.actions")
-                local action_state = require("telescope.actions.state.state")
-                local sorter = require("telescope.config").values.generic_sorter
-
-                pickers.new({}, {
-                  prompt_title = "LSP Definitions",
-                  finder = finders.new_table {
-                    results = result,
-                    entry_maker = function(entry)
-                      local uri = entry.uri or entry.targetUri
-                      local filename = vim.uri_to_fname(uri)
-                      local range = entry.range or entry.targetSelectionRange
-                      local row = range.start.line + 1
-                      local col = range.start.character + 1
-                      return {
-                        value = entry,
-                        display = string.format("%s:%d:%d", filename, row, col),
-                        ordinal = filename,
-                      }
-                    end
-                  },
-                  sorter = sorter({}),
-                  attach_mappings = function(prompt_bufnr, _)
-                    actions.select_default:replace(function()
-                      actions.close(prompt_bufnr)
-                      local selection = action_state.get_selected_entry()
-                      if selection then
-                        vim.cmd("vsplit")
-                        vim.cmd("wincmd w")
-                        vim.lsp.util.jump_to_location(selection.value, nil, false)
-                      end
-                    end)
-                    return true
-                  end
-                }):find()
-              end
-            else
-              -- single definition returned (not a list)
-              vim.cmd("vsplit")
-              vim.cmd("wincmd w")
-              vim.lsp.util.jump_to_location(result, nil, false)
-            end
-          end)
-        end
-
-        if client.supports_method("textDocument/formatting") then
-          vim.api.nvim_clear_autocmds({
-            group = augroup,
-            buffer = bufnr,
-          })
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            group = augroup,
-            buffer = bufnr,
-            callback = function()
-              vim.lsp.buf.format({ bufnr = bufnr })
-            end,
-          })
-        end
-
-        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-        vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-        vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-        vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-        vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-        vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-        vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-        vim.keymap.set("n", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-        vim.keymap.set("n", "<leader>od", goto_definition_in_vsplit, { noremap = true, silent = true })
-      end)
-
+      lsp.on_attach(custom_lsp.on_attach_fn)
       -- (Optional) Configure lua language server for neovim
       lsp.nvim_workspace()
 
