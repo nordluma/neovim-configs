@@ -9,7 +9,6 @@ return {
       { 'williamboman/mason.nvim' },
       { 'williamboman/mason-lspconfig.nvim' },
 
-
       -- Autocompletion
       { 'hrsh7th/nvim-cmp' },
       { 'hrsh7th/cmp-nvim-lsp' },
@@ -72,7 +71,6 @@ return {
       lsp.on_attach(custom_lsp.on_attach_fn)
       -- (Optional) Configure lua language server for neovim
       lsp.nvim_workspace()
-
       -- Ignore TailwindCss unknownAtRules
       lsp.setup({
         settings = {
