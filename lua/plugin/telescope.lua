@@ -6,6 +6,7 @@ return {
       'nvim-lua/plenary.nvim',
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
+    lazy = false,
     config = function()
       require("telescope").setup({
         extensions = {
