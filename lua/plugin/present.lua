@@ -1,6 +1,6 @@
 return {
   {
-    lazy = false,
+    cmd = "PresentStart",
     dir = "~/dev/lua/present.nvim",
   }
 }

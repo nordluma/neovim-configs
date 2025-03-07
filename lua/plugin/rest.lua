@@ -1,7 +1,7 @@
 return {
   {
     "rest-nvim/rest.nvim",
-    lazy = false,
+    cmd = "Rest",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       opts = function(_, opts)
