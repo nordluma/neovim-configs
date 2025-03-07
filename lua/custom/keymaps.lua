@@ -19,9 +19,6 @@ vim.keymap.set("n", "<leader>dd", "\"_dd")
 
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
--- Quickjump to `lazy.lua`
-vim.keymap.set("n", "<leader>jvp", "<cmd>e ~/.config/nvim/lua/wolfhe/lazy.lua<CR>")
-
 -- Highlight when yanking
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
