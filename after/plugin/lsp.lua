@@ -76,7 +76,6 @@ lsp.on_attach(function(client, bufnr)
                     vim.cmd("wincmd w")
                     vim.lsp.util.jump_to_location(def, nil, false)
                 else
-                    vim.notify("received result list multiple elements", vim.log.levels.INFO)
                     -- multiple definitions returned -> open a telescope picker
                     local pickers = require("telescope.pickers")
                     local finders = require("telescope.finders")
