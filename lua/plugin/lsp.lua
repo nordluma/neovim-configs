@@ -50,23 +50,23 @@ return {
         }
       })
 
-      lsp.format_on_save({
-        format_opts = {
-          async = false,
-          timeout_ms = 10000,
-        },
-        servers = {
-          ['rust_analyzer'] = { 'rust' },
-          ['null-ls'] = {
-            'typescript',
-            'javascript',
-            'typescriptreact',
-            'javascriptreact',
-            'marksman',
-            'python'
-          },
-        }
-      })
+      -- lsp.format_on_save({
+      --   format_opts = {
+      --     async = false,
+      --     timeout_ms = 10000,
+      --   },
+      --   servers = {
+      --     ['rust_analyzer'] = { 'rust' },
+      --     ['null-ls'] = {
+      --       'typescript',
+      --       'javascript',
+      --       'typescriptreact',
+      --       'javascriptreact',
+      --       'marksman',
+      --       'python'
+      --     },
+      --   }
+      -- })
 
       lsp.on_attach(custom_lsp.on_attach_fn)
       -- (Optional) Configure lua language server for neovim
