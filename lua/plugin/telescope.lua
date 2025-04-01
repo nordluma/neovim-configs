@@ -24,6 +24,7 @@ return {
       set_keymap('n', '<leader>ps', function()
         builtin.grep_string({ search = vim.fn.input("Grep > ") })
       end)
+      set_keymap("n", "<leader>fh", builtin.help_tags, {})
       set_keymap("n", "<leader>jvp", function()
         local opts = require("telescope.themes").get_ivy({
           cwd = vim.fn.stdpath("config")
