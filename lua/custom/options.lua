@@ -80,3 +80,36 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.expandtab = false
   end
 })
+
+-- diagnostic virtual lines (toggle)
+
+local diagnostic_virtual_lines_on = {
+  virtual_text = {
+    severity = {
+      max = vim.diagnostic.severity.WARN
+    },
+  },
+  virtual_lines = {
+    severity = {
+      min = vim.diagnostic.severity.ERROR
+    },
+  },
+}
+
+local diagnostic_virtual_lines_off = {
+  virtual_text = true,
+  virtual_lines = false,
+}
+
+-- enable virtual lines by default
+vim.diagnostic.config(diagnostic_virtual_lines_on)
+
+local virtual_lines_off = false
+vim.keymap.set("n", "gK", function()
+  virtual_lines_off = not virtual_lines_off
+  if virtual_lines_off then
+    vim.diagnostic.config(diagnostic_virtual_lines_off)
+  else
+    vim.diagnostic.config(diagnostic_virtual_lines_on)
+  end
+end, { desc = "Toggle diagnostic virtual lines" })
