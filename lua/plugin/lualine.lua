@@ -7,7 +7,9 @@ return {
       local lazy_status = require("lazy.status")
       require("lualine").setup {
         options = {
-          theme = 'palenight',
+          --
+          --theme = 'palenight',
+          theme = "tokyonight-night",
           disabled_filetypes = {}
         },
         sections = {
@@ -36,10 +38,14 @@ return {
             { 'fileformat' },
             { 'filetype' },
           },
-          lualine_y = { 'progress' },
-          lualine_z = {
+          lualine_y = {
+            'progress',
+            "selectioncount",
             'location',
-            { 'datetime', style = "%H.%M" }
+          },
+          lualine_z = {
+            --{ 'datetime', style = "%H.%M" }
+            { "lsp_status", ignore_lsp = { "typos_lsp" } }
           }
         },
         inactive_sections = {
