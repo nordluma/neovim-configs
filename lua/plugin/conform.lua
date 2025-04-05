@@ -17,10 +17,11 @@ return {
       rust = { "rustfmt", lsp_format = "fallback" },
       javascript = { "biome", "prettierd", "prettier", stop_after_first = true },
       typescript = { "biome", "prettierd", "prettier", stop_after_first = true },
-      json = { "prettier" }
+      json = { "prettier" },
+      ocaml = { "ocamlformat" },
     },
     default_format_opts = {
-      lsp_format = "fallback"
+      lsp_format = "fallback",
     },
     format_on_save = {
       lsp_format = "fallback",
@@ -29,5 +30,5 @@ return {
     log_level = vim.log.levels.ERROR,
     notify_on_error = true,
     notify_no_formatters = true,
-  }
+  },
 }
