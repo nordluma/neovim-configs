@@ -39,16 +39,32 @@ vim.opt.expandtab = true
 -- autocommand groups for different indententation sizes
 local indent_config = {
   space2 = {
-    "javascript", "typescript", "jsx", "tsx", "json", "html", "css", "vim", "yaml", "elixir", "lua"
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact",
+    "json",
+    "html",
+    "css",
+    "vim",
+    "yaml",
+    "elixir",
+    "lua",
+    "ocaml",
   },
 
   space4 = {
-    "python", "rust", "c", "cpp", "go"
+    "python",
+    "rust",
+    "c",
+    "cpp",
+    "go",
   },
 
   tab = {
-    "make", "gitconfig"
-  }
+    "make",
+    "gitconfig",
+  },
 }
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -58,7 +74,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.tabstop = 2
     vim.opt_local.softtabstop = 2
     vim.opt_local.expandtab = true
-  end
+  end,
 })
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -68,7 +84,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.tabstop = 4
     vim.opt_local.softtabstop = 4
     vim.opt_local.expandtab = true
-  end
+  end,
 })
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -78,7 +94,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.tabstop = 8
     vim.opt_local.softtabstop = 8
     vim.opt_local.expandtab = false
-  end
+  end,
 })
 
 -- diagnostic virtual lines (toggle)
@@ -86,12 +102,12 @@ vim.api.nvim_create_autocmd("FileType", {
 local diagnostic_virtual_lines_on = {
   virtual_text = {
     severity = {
-      max = vim.diagnostic.severity.WARN
+      max = vim.diagnostic.severity.WARN,
     },
   },
   virtual_lines = {
     severity = {
-      min = vim.diagnostic.severity.ERROR
+      min = vim.diagnostic.severity.ERROR,
     },
   },
 }
