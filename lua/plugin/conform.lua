@@ -17,6 +17,7 @@ return {
       rust = { "rustfmt", lsp_format = "fallback" },
       javascript = { "biome", "prettierd", "prettier", stop_after_first = true },
       typescript = { "biome", "prettierd", "prettier", stop_after_first = true },
+      json = { "prettier" }
     },
     default_format_opts = {
       lsp_format = "fallback"
