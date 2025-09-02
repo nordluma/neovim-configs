@@ -15,10 +15,17 @@ return {
 				end
 			end,
 			rust = { "rustfmt", lsp_format = "fallback" },
+			go = { "gofumpt", "goimports", "golines", lsp_format = "fallback", stop_after_first = false },
 			javascript = { "biome", "prettierd", "prettier", stop_after_first = true },
 			typescript = { "biome", "prettierd", "prettier", stop_after_first = true },
 			json = { "prettier" },
 			ocaml = { "ocamlformat" },
+			markdown = { "prettier" },
+		},
+		formatters = {
+			golines = {
+				prepend_args = { "-m", "80" },
+			},
 		},
 		default_format_opts = {
 			lsp_format = "fallback",
