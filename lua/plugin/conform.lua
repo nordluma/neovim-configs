@@ -18,11 +18,19 @@ return {
 			go = { "gofumpt", "goimports", "golines", lsp_format = "fallback", stop_after_first = false },
 			javascript = { "biome", "prettierd", "prettier", stop_after_first = true },
 			typescript = { "biome", "prettierd", "prettier", stop_after_first = true },
+			javascriptreact = { "biome", "prettierd", "prettier", stop_after_first = true },
+			typescriptreact = { "biome", "prettierd", "prettier", stop_after_first = true },
+			html = { "prettier", lsp_format = "fallback" },
+			hmldjango = { "djlint", "prettier", stop_after_first = true },
 			json = { "prettier" },
 			ocaml = { "ocamlformat" },
-			markdown = { "prettier" },
+			markdown = { "prettier", lsp_format = "fallback" },
+			jq = { "jq" },
 		},
 		formatters = {
+			djlint = {
+				prepend_args = { "--max-line-length", "80", "--indent", "2" },
+			},
 			golines = {
 				prepend_args = { "-m", "80" },
 			},
