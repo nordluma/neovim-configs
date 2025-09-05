@@ -57,6 +57,7 @@ return {
 					{ name = "luasnip" },
 					{ name = "path" },
 					{ name = "buffer" },
+					{ name = "render-markdown" },
 				},
 				preselect = "item",
 				window = {
