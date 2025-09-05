@@ -73,6 +73,9 @@ return {
 					set_keymap("n", "<C-h>", function()
 						lsp.buf.signature_help()
 					end, opts)
+					set_keymap("n", "<leader>gh", function()
+						lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled())
+					end)
 				end,
 			})
 
@@ -80,7 +83,9 @@ return {
 			require("mason-lspconfig").setup({
 				-- handlers = {
 				-- 	function(server_name)
-				-- 		require("lspconfig")[server_name].setup({})
+				-- 		require("lspconfig")[server_name].setup({
+				-- 		capabilities = lsp_defaults.capabilities
+				-- 		})
 				-- 	end,
 				-- },
 			})
