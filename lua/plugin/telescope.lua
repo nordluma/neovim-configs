@@ -38,6 +38,9 @@ return {
 					jump_type = "vsplit",
 				})
 			end)
+			set_keymap("n", "<leader>wd", function()
+				builtin.lsp_document_symbols({ file_encoding = "utf-8" })
+			end)
 
 			set_keymap("n", "<leader>re", function()
 				require("telescope").extensions.rest.select_env()
