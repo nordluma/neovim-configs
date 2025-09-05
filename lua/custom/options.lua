@@ -45,6 +45,7 @@ local indent_config = {
 		"typescriptreact",
 		"json",
 		"html",
+		"markdown",
 		"css",
 		"vim",
 		"yaml",
