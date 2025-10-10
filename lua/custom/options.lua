@@ -44,6 +44,7 @@ local indent_config = {
 		"javascriptreact",
 		"typescriptreact",
 		"json",
+		"jsonc",
 		"html",
 		"markdown",
 		"css",
