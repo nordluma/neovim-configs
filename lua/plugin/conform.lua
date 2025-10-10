@@ -20,6 +20,7 @@ return {
 			typescript = { "biome", "prettierd", "prettier", stop_after_first = true },
 			javascriptreact = { "biome", "prettierd", "prettier", stop_after_first = true },
 			typescriptreact = { "biome", "prettierd", "prettier", stop_after_first = true },
+			css = { "biome", "prettier", stop_after_first = true },
 			html = { "prettier", lsp_format = "fallback" },
 			hmldjango = { "djlint", "prettier", stop_after_first = true },
 			json = { "prettier" },
