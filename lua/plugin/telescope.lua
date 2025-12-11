@@ -20,9 +20,14 @@ return {
 			local builtin = require("telescope.builtin")
 			set_keymap("n", "<leader>pf", builtin.find_files, {})
 			set_keymap("n", "<leader>gf", builtin.git_files, {})
-			set_keymap("n", "<leader>pd", builtin.diagnostics, {})
-			set_keymap("n", "<leader>ps", function()
-				builtin.grep_string({ search = vim.fn.input("Grep > ") })
+			set_keymap("n", "<leader>gl", builtin.git_commits, {})
+			set_keymap("n", "<leader>pg", function()
+				local query = vim.fn.input("Grep > ")
+				if query == "" then
+					return
+				end
+
+				builtin.grep_string({ search = query })
 			end)
 			set_keymap("n", "<leader>fh", builtin.help_tags, {})
 			set_keymap("n", "<leader>jvp", function()
@@ -37,9 +42,6 @@ return {
 				builtin.lsp_definitions({
 					jump_type = "vsplit",
 				})
-			end)
-			set_keymap("n", "<leader>wd", function()
-				builtin.lsp_document_symbols({ file_encoding = "utf-8" })
 			end)
 
 			set_keymap("n", "<leader>re", function()
