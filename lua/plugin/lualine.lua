@@ -17,7 +17,7 @@ return {
 		lazy = false,
 		opts = {
 			--theme = 'palenight',
-			options = { theme = "tokyonight-night" },
+			-- options = { theme = "tokyonight-night" },
 			sections = {
 				lualine_a = { "mode" },
 				lualine_b = {
