@@ -8,7 +8,7 @@ vim.api.Clipboard = "xclip"
 -- Formatting
 vim.opt.smartindent = true
 vim.opt.wrap = true
-vim.opt.tw = 80
+vim.opt.tw = 80 -- set global default value
 
 -- Backups
 vim.opt.swapfile = false
@@ -28,13 +28,22 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "80" -- set global default value
 
 -- Tabs (fallback)
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+
+-- override text width and colorcolumn for go
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "go",
+	callback = function()
+		vim.bo.textwidth = 100
+		vim.opt_local.colorcolumn = "100"
+	end,
+})
 
 -- autocommand groups for different indententation sizes
 local indent_config = {
