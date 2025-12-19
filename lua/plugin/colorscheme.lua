@@ -11,6 +11,7 @@ return {
 					"kanagawa-dragon",
 					"evangelion",
 					"nvimgelion",
+					"eldritch",
 				},
 				livePreview = true,
 			})
@@ -53,6 +54,11 @@ return {
 	},
 	{
 		"xero/evangelion.nvim",
+		priority = 1000,
+		opts = { transparent = true },
+	},
+	{
+		"eldritch-theme/eldritch.nvim",
 		priority = 1000,
 		opts = { transparent = true },
 	},
